@@ -1,0 +1,63 @@
+:root {
+  --black: #0D1117;
+  --gray: #8B949E;
+  --gray-op-2: rgb(139, 148, 158, 0.2); 
+  --white: #C9D1D9;
+}
+
+body {
+  background-color: var(--black); 
+  color: var(--white);
+  font-size: 1.1rem;
+}
+
+#app {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.input, .fieldset {
+  background-color: var(--black);
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  color: var(--gray);
+  padding: 5px 12px;
+  font-size: 1.1rem;
+}
+
+.btn {
+  background-color: #238636;
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn--disabled {
+  background-color: var(--black);
+  border: 1px solid #238636;
+}
+
+.btn--secondary {
+  background-color: var(--black);
+  color: var(--white);
+  border: 1px solid var(--gray);
+}
+
+.btn--secondary:disabled {
+  border: 1px solid var(--gray-op-2);
+}
+
+.calendary_filter {
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  border: 1px solid var(--gray);
+  padding: 1rem;
+}

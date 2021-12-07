@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar to search at GitHub</title>
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+  <main id="app">
+    <form id="calendary_filter" class="calendary_filter">
+        <select id="input_what_is_search" name="typeOfSearch" class="input">
+          <option value="issue">
+            Issues
+          </option>
+          <option value="pr">
+            Pull Request
+          </option>
+        </select>
+        <input 
+          type="text" 
+          placeholder="User/Organization" 
+          list="users_history"
+          id="input_user" 
+          name="user" 
+          class="input calendary_filter__repository_name" 
+          autofocus
+        />
+        <input 
+          type="text" 
+          placeholder="Repository name" 
+          list="repositories_history"
+          id="input_repository" 
+          name="repository" 
+          class="input calendary_filter__repository_name" 
+        />
+        <select id="input_condition" name="condition" class="input">
+          <option value="after">
+            After of
+          </option>
+          <option value="before">
+            Before of
+          </option>
+          <option value="equals">
+            Equals to
+          </option>
+        </select>
+        <input type="date" name="date" id="input_date" class="input calendary_filter__date_search" />
+        <datalist id="repositories_history">
+          <!-- TODO: ADD repositories history on this datalist -->
+        </datalist>
+        <datalist id="users_history">
+          <!-- TODO: ADD users history on this datalist -->
+        </datalist>
+        <a id="redirectToSearch" target="_blank" href="#" class="btn">Ir</a>
+        <button id="copySearch" class="btn btn--secondary">Copiar</button>
+    </form>
+  </main>
+
+  <script type="module">
+    import { getFromLSOrDefaultValue, validateForm } from './src/js/utils.js';
+
+    const form = document.forms['calendary_filter'];
+    const formData = getFromLSOrDefaultValue('formData', {});
+    const inputRepository = form['input_repository'];
+    const inputCondition = form['input_condition'];
+    const inputDate = form['input_date'];
+    const linkRedirect = document.getElementById('redirectToSearch');
+    const buttonCopy = form['copySearch'];
+
+    const fillFormWithFormData = (formData, form) => {
+      if (!form) return;
+
+      for (const [key, data] of Object.entries(formData)) {
+        try {
+          form[key].value = data;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    }
+
+    window.onload = () => {
+      const date = new Date();
+      const fullDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDay() >= 10 ? date.getDate() : '0' + date.getDate() }`;
+
+      inputDate.value = fullDate;
+      linkRedirect.classList.add('btn--disabled');
+      buttonCopy.disabled = true;
+
+      fillFormWithFormData(formData, form);
+      validateForm(formData, linkRedirect);
+    }
+
+    form.addEventListener('input', (evt) => {
+      formData[evt.target.name] = evt.target.value;
+      localStorage.setItem('formData', JSON.stringify(formData));
+
+      validateForm(formData, linkRedirect);
+    }, true);
+    
+  </script>
+</body>
+</html>
