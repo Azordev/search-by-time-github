@@ -4,25 +4,48 @@ export const getFromLSOrDefaultValue = (key, defaultValue) => {
   return item ? JSON.parse(item) : defaultValue;
 }
 
-export const validateForm = (formData, anchorElement) => {
-  if (!anchorElement) return;
+export const createSearchFilter = (formData) => {
+  const {
+    user,
+    repository,
+    typeOfSearch,
+    condition,
+    date
+  } = formData;
 
-  if (formData.user && formData.repository && formData.typeOfSearch && formData.condition && formData.date) {
-    let condition = ''; 
-    
-    switch (formData.condition) {
+  let searchCondition = '';
+
+  if (user && repository && typeOfSearch && condition && date) {
+    switch (condition) {
     case 'after':
-      condition = '>=';
+      searchCondition = '>=';
       break;
     case 'before':
-      condition = '<=';
+      searchCondition = '<=';
       break; 
     }
 
-    anchorElement.href = `https://github.com/${formData.user}/${formData.repository}/issues?q=${encodeURI(`is:${formData.typeOfSearch} closed:${condition}${formData.date}`)}`;
+  }
+  
+  return {user, repository, typeOfSearch: `is:${typeOfSearch}`, date: `closed:${searchCondition}${date}`};
+}
+
+const changeAnchorLink = (anchorElement, { user, repository, typeOfSearch, date }) => {
+  if (anchorElement) { 
+    anchorElement.href = `https://github.com/${user}/${repository}/issues?q=${encodeURI(`${typeOfSearch} ${date}`)}`;
     anchorElement.classList.remove('btn--disabled');
   } else {
     anchorElement.href = '#';
     anchorElement.classList.add('btn--disabled');
   }
+}
+
+export const validateForm = (formData, anchorElement) => {
+  const filterData = createSearchFilter(formData);
+
+  const isValid = filterData.user && filterData.repository && filterData.typeOfSearch && filterData.date;
+
+  if (isValid && anchorElement) changeAnchorLink(anchorElement, filterData);
+  
+  return isValid;
 }

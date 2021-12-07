@@ -59,7 +59,7 @@
   </main>
 
   <script type="module">
-    import { getFromLSOrDefaultValue, validateForm } from './src/js/utils.js';
+    import { getFromLSOrDefaultValue, validateForm, createSearchFilter } from './src/js/utils.js';
 
     const form = document.forms['calendary_filter'];
     const formData = getFromLSOrDefaultValue('formData', {});
@@ -87,7 +87,6 @@
 
       inputDate.value = fullDate;
       linkRedirect.classList.add('btn--disabled');
-      buttonCopy.disabled = true;
 
       fillFormWithFormData(formData, form);
       validateForm(formData, linkRedirect);
@@ -99,7 +98,19 @@
 
       validateForm(formData, linkRedirect);
     }, true);
-    
+
+    buttonCopy.addEventListener('click', (evt) => {
+      evt.preventDefault();
+
+      if (validateForm(formData)) {
+        const {
+          typeOfSearch, date
+        } = createSearchFilter(formData);
+
+        navigator.clipboard.writeText(`${typeOfSearch} ${date}`)
+      }
+    })
+
   </script>
 </body>
 </html>
