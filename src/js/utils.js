@@ -17,17 +17,24 @@ export const createSearchFilter = (formData) => {
 
   if (user && repository && typeOfSearch && condition && date) {
     switch (condition) {
-    case 'after':
-      searchCondition = '>=';
-      break;
-    case 'before':
-      searchCondition = '<=';
-      break; 
+      case 'after':
+        searchCondition = '>=';
+        break;
+      case 'before':
+        searchCondition = '<=';
+        break;
     }
-
   }
-  
-  return {user, repository, typeOfSearch: `is:${typeOfSearch}`, date: `closed:${searchCondition}${date}`};
+
+  const searchTypeOfSearch = typeOfSearch ? `is:${typeOfSearch}` : undefined;
+  const searchDate = searchCondition && date ? `closed:${searchCondition}${date}` : undefined;
+
+  return {
+    user,
+    repository,
+    typeOfSearch: searchTypeOfSearch,
+    date: searchDate
+  };
 }
 
 const changeAnchorLink = (anchorElement, { user, repository, typeOfSearch, date }) => {
@@ -48,4 +55,22 @@ export const validateForm = (formData, anchorElement) => {
   if (isValid && anchorElement) changeAnchorLink(anchorElement, filterData);
   
   return isValid;
+}
+
+export const getFormValues = (form) => {
+  if (!form) return;
+  
+  const values = {}
+
+  for (const input of Object.values(form)) {
+    try {
+      if (input.name.trim() && input.value.trim()) {
+        values[input.name] = input.value;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  return values;
 }
