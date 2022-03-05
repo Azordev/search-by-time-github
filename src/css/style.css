@@ -81,7 +81,6 @@ body {
 .calendary_filter {
   gap: 12px;
   display: grid;
-  padding: 1rem;
   padding: 30px;
   max-width: 526px;
   max-height: 388px;
@@ -101,10 +100,9 @@ body {
   margin-bottom: 10px;
   color: var(--black);
   font-family: Montserrat;
-  border: 1px solid var(--gray);
   border: 1px solid var(--gray-op-2);
 }
 .calendary_filter__date_search:focus {
-  border-color: var(--input-border-blue);
   outline-width: 0px;
+  border-color: var(--input-border-blue);
 }
