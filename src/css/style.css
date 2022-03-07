@@ -45,9 +45,8 @@ body {
   height: 27px;
   padding: auto;
   cursor: pointer;
-  margin: 5px 8px;
+  margin: 5px 8px 0;
   color:var(--white);
-  margin-bottom: 0px;
   text-align: center;
   border-radius: 10px;
   text-decoration: none;
@@ -63,11 +62,8 @@ body {
   height: 45px;
   cursor: pointer;
   margin-right: 4px;
-  border-style:solid;
   margin-left: -53px;
   border-radius: 40px;
-  color: var(--white);
-  border-style: inset;
   border: 3px solid var(--gray);
   background-color: var(--button-dark-blue);
 }
