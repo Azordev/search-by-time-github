@@ -6,11 +6,11 @@
   --button-dark-blue: #001E66;
   --button-light-blue: #76A4FF;
   --input-border-blue: #3878F9;
-  --gray-op-2: rgb(139, 148, 158, 0.2); 
+  --gray-op-2: rgb(139, 148, 158, 0.2);
 }
 body {
   font-size: 1.1rem;
-  color: var(--white);
+  color: var(--black);
   background-color: var(--white);
 }
 #app {
@@ -96,7 +96,7 @@ body {
   margin-bottom: 10px;
   color: var(--black);
   font-family: Montserrat;
-  border: 1px solid var(--gray-op-2);
+  border: 1px solid var(--gray);
 }
 .calendary_filter__date_search:focus {
   outline-width: 0px;
