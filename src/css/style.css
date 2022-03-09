@@ -53,8 +53,9 @@ body {
   font-family: Montserrat;
   background-color: var(--button-dark-blue);
 }
-.btn--disabled {
-  border: 1px solid #238636;
+.btn:disabled {
+  color: var(--gray-op-2);
+  border: 1px solid var(--gray);
   background-color: var(--white);
 }
 .btn--back {
@@ -68,8 +69,8 @@ body {
   background-color: var(--button-dark-blue);
 }
 .btn--secondary {
-  background-color: var(--button-light-blue);
   color: var(--white);
+  background-color: var(--button-light-blue);
 }
 .btn--secondary:disabled {
   border: 1px solid var(--gray-op-2);
