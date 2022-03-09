@@ -1,63 +1,105 @@
 :root {
-  --black: #0D1117;
-  --gray: #8B949E;
-  --gray-op-2: rgb(139, 148, 158, 0.2); 
-  --white: #C9D1D9;
+  --gray: #C4C4C4;
+  --black: #000000;
+  --white: #FFFFFF;
+  --gray-op-1: #C9D1D9;
+  --button-dark-blue: #001E66;
+  --button-light-blue: #76A4FF;
+  --input-border-blue: #3878F9;
+  --gray-op-2: rgb(139, 148, 158, 0.2);
 }
-
 body {
-  background-color: var(--black); 
-  color: var(--white);
   font-size: 1.1rem;
+  color: var(--black);
+  background-color: var(--white);
 }
-
 #app {
+  height: 97vh;
   display: flex;
-  height: 100vh;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
-
 .input, .fieldset {
-  background-color: var(--black);
-  border: 1px solid var(--gray);
-  border-radius: 5px;
-  color: var(--gray);
+  width: 220px;
+  height: 38px;
+  margin-top: 3px;
   padding: 5px 12px;
   font-size: 1.1rem;
-}
-
-.btn {
-  background-color: #238636;
-  border: none;
-  color: #FFF;
-  cursor: pointer;
-  padding: 5px 12px;
-  border-radius: 5px;
-  text-align: center;
-  text-decoration: none;
-}
-
-.btn--disabled {
-  background-color: var(--black);
-  border: 1px solid #238636;
-}
-
-.btn--secondary {
-  background-color: var(--black);
-  color: var(--white);
+  color: var(--black);
+  border-radius: 10px;
+  margin-bottom: -5px;
+  font-family: Montserrat;
   border: 1px solid var(--gray);
+  background-color: var(--white);
 }
-
+.input:focus {
+  outline-width: 0px;
+  border-color: var(--input-border-blue);
+}
+.div {
+  text-align: center;
+}
+.btn {
+  width: 75px;
+  border: none;
+  height: 27px;
+  padding: auto;
+  cursor: pointer;
+  margin: 5px 8px 0;
+  color:var(--white);
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: Montserrat;
+  background-color: var(--button-dark-blue);
+}
+.btn:disabled {
+  color: var(--gray-op-2);
+  border: 1px solid var(--gray);
+  background-color: var(--white);
+}
+.btn--back {
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  margin-right: 4px;
+  margin-left: -53px;
+  border-radius: 40px;
+  border: 3px solid var(--gray);
+  background-color: var(--button-dark-blue);
+}
+.btn--secondary {
+  color: var(--white);
+  background-color: var(--button-light-blue);
+}
 .btn--secondary:disabled {
   border: 1px solid var(--gray-op-2);
 }
-
 .calendary_filter {
-  border-radius: 5px;
-  display: grid;
-  grid-template-columns: 1fr;
   gap: 12px;
+  display: grid;
+  padding: 30px;
+  max-width: 526px;
+  max-height: 388px;
+  border-radius: 13px;
+  box-sizing: border-box;
+  grid-template-columns: 1fr;
+  border: 2px solid var(--gray);
+  background-color: var(--white);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.calendary_filter__date_search {
+  height: 26px;
+  width: 193px;
+  padding: 5px 12px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  color: var(--black);
+  font-family: Montserrat;
   border: 1px solid var(--gray);
-  padding: 1rem;
+}
+.calendary_filter__date_search:focus {
+  outline-width: 0px;
+  border-color: var(--input-border-blue);
 }

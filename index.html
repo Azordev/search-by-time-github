@@ -5,20 +5,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calendar to search at GitHub</title>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
   <main id="app">
-    <form id="calendary_filter" class="calendary_filter">
-        <select id="type_of_search" name="typeOfSearch" class="input">
-          <option value="issue">
-            Issues
+    <div style="display: block">
+    <div class="div">
+      <img src="src/assets/git.png" width="100px" height="100px"/>
+    </div>
+    <div>
+    <form id="calendary_filter" style="margin-top: 15px" class="calendary_filter">
+        <select id="input_condition" name="condition" class="input">
+          <option value="after">
+            After of
           </option>
-          <option value="pr">
-            Pull Request
+          <option value="before">
+            Before of
+          </option>
+          <option value="equals">
+            Equals to
           </option>
         </select>
-        <input 
+        <!-- <input 
           type="text" 
           placeholder="User/Organization" 
           list="users_history"
@@ -34,28 +43,26 @@
           id="input_repository" 
           name="repository" 
           class="input calendary_filter__repository_name" 
-        />
-        <select id="input_condition" name="condition" class="input">
-          <option value="after">
-            After of
-          </option>
-          <option value="before">
-            Before of
-          </option>
-          <option value="equals">
-            Equals to
-          </option>
-        </select>
-        <input type="date" name="date" id="input_date" class="input calendary_filter__date_search" />
+        /> -->
+        <div>
+          <button id="goback" class="btn--back">
+            <img src="./src/assets/arrow.png" style="margin-top: 3px" width="15px" height="15px" alt=""/>
+          </button>
+          <input type="date" name="date" id="input_date" class="calendary_filter__date_search" />
+        </div>
         <datalist id="repositories_history">
           <!-- TODO: ADD repositories history on this datalist -->
         </datalist>
         <datalist id="users_history">
           <!-- TODO: ADD users history on this datalist -->
         </datalist>
-        <a id="redirectToSearch" target="_blank" href="#" class="btn">Ir</a>
-        <button id="copySearch" class="btn btn--secondary">Copiar</button>
+        <div class="div">
+          <button id="redirectToSearch" class="btn">Ir</button>
+          <button id="copySearch" class="btn btn--secondary">Copiar</button>
+        </div>
     </form>
+  </div>
+</div>
   </main>
 
   <script type="module">
