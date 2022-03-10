@@ -27,114 +27,163 @@
         </div>        
       </div>
     </div>
-    <div class="form">
-      <div style="display: block">
-        <div class="div">
-          <img src="./src/assets/git.png" width="100px" height="100px"/>
-        </div>
-        <form id="calendary_filter" style="margin-top: 15px" class="calendary_filter">
-            <select id="input_condition" name="condition" class="input">
-              <option default>
-                Select
-              </option>
-              <option value="after">
-                After of
-              </option>
-              <option value="before">
-                Before of
-              </option>
-              <option value="equals">
-                Equals to
-              </option>
-            </select>
-            <!-- <input 
-              type="text" 
-              placeholder="User/Organization" 
-              list="users_history"
-              id="input_user" 
-              name="user" 
-              class="input calendary_filter__repository_name" 
-              autofocus
-            />
-            <input 
-              type="text" 
-              placeholder="Repository name" 
-              list="repositories_history"
-              id="input_repository" 
-              name="repository" 
-              class="input calendary_filter__repository_name" 
-            /> -->
-            <div>
-              <button id="goback" class="btn--back">
-                <img src="./src/assets/arrow.png" style="margin-top: 3px" width="15px" height="15px" alt="Back button icon"/>
-              </button>
-              <input type="date" name="date" id="input_date" class="calendary_filter__date_search" />
-            </div>
-            <datalist id="repositories_history">
-              <!-- TODO: ADD repositories history on this datalist -->
-            </datalist>
-            <datalist id="users_history">
-              <!-- TODO: ADD users history on this datalist -->
-            </datalist>
-            <div class="div">
-              <button id="redirectToSearch" class="btn">Ir</button>
-              <button id="copySearch" class="btn btn--secondary">Copiar</button>
-            </div>
-        </form>
-      </div>
+    <div style="display: block">
+    <div class="div">
+      <img src="src/assets/git.png" width="100px" height="100px"/>
     </div>
+    <div>
+    <form id="calendary_filter" style="margin-top: 15px" class="calendary_filter">
+        <div id="tab_1" class="box ">
+          
+         
+          <select id="input_issues" name="issues" class="input ">
+            <option value="#">
+              issues
+            </option>
+            <option value="#">
+              issues #
+            </option>
+            <option value="#">
+              issues #
+          </select>
+         
+
+          <input 
+            type="text" 
+            placeholder="User/Organization" 
+            list="users_history"
+            id="input_user" 
+            name="user" 
+            class="input calendary_filter__repository_name " 
+            
+          />
+          <input 
+            type="text" 
+            placeholder="Repository name" 
+            list="repositories_history"
+            id="input_repository" 
+            name="repository" 
+            class="input calendary_filter__repository_name " 
+          />
+
+          <div class="align-r mt-3">
+            <button id="btn_next" class="btn btn-sm">Next</button>
+          </div>
+
+        </div>  
+
+        <div id="tab_2" class="box d-none">
+       
+          <select id="input_condition" name="condition" class="input ">
+            <option value="after">
+              After of
+            </option>
+            <option value="before">
+              Before of
+            </option>
+            <option value="equals">
+              Equals to
+            </option>
+          </select>
+          
+          <input type="date" name="date" id="input_date" class="calendary_filter__date_search input" />
+
+          <div class="p-relative">
+            <button id="goback" class="btn--back p-absolute mt--6">
+              <img src="./src/assets/arrow.png" style="margin-top: 3px" width="15px" height="15px" alt=""/>
+            </button>
+          </div>
+
+        
+        
+          <div class="div mt-3">
+            <button id="redirectToSearch" class="btn btn-sm">Ir</button>
+            <button id="copySearch" class="btn btn--secondary btn-sm">Copiar</button>
+          </div>
+        </div>
+        <datalist id="repositories_history">
+          <!-- TODO: ADD repositories history on this datalist -->
+        </datalist>
+        <datalist id="users_history">
+          <!-- TODO: ADD users history on this datalist -->
+        </datalist>
+        
+        
+    </form>
+  </div>
+</div>
   </main>
-
+  
   <script type="module">
-    import { getFromLSOrDefaultValue, validateForm, createSearchFilter, getFormValues } from './src/js/utils.js';
+   import { getFromLSOrDefaultValue, validateForm, createSearchFilter, getFormValues } from './src/js/utils.js';
 
-    const form = document.forms['calendary_filter'];
-    const formData = getFromLSOrDefaultValue('formData', getFormValues(form));
-    const linkRedirect = document.getElementById('redirectToSearch');
-    const buttonCopy = form['copySearch'];
+/*
+* STEPS FORM 
+*/
+const btnNext =document.getElementById('btn_next');
+const goBack =document.getElementById('goback');
+const tab1 = document.getElementById('tab_1');
+const tab2 = document.getElementById('tab_2');
 
-    const fillFormWithFormData = (formData, form) => {
-      if (!form) return;
+btnNext.addEventListener('click',function(evt){
+  evt.preventDefault();
+  tab2.classList.remove('d-none');
+  tab1.classList.add('d-none');
+});
 
-      for (const [key, data] of Object.entries(formData)) {
-        try {
-          form[key].value = data;
-        } catch (error) {
-          debugger;
-          console.error(error);
-        }
-      }
+goBack.addEventListener('click',function(evt){
+  evt.preventDefault();
+  tab1.classList.remove('d-none');
+  tab2.classList.add('d-none');
+});
+
+const form = document.forms['calendary_filter'];
+const formData = getFromLSOrDefaultValue('formData', getFormValues(form));
+const linkRedirect = document.getElementById('redirectToSearch');
+const buttonCopy = form['copySearch'];
+
+const fillFormWithFormData = (formData, form) => {
+  if (!form) return;
+
+  for (const [key, data] of Object.entries(formData)) {
+    try {
+      form[key].value = data;
+    } catch (error) {
+      debugger;
+      console.error(error);
     }
+  }
+}
 
-    window.onload = () => {
-      const date = new Date();
-      const fullDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDay() >= 10 ? date.getDate() : '0' + date.getDate() }`;
+window.onload = () => {
+  const date = new Date();
+  const fullDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDay() >= 10 ? date.getDate() : '0' + date.getDate() }`;
 
-      form.date.value = fullDate;
-      linkRedirect.classList.add('btn--disabled');
+  form.date.value = fullDate;
+  linkRedirect.classList.add('btn--disabled');
 
-      fillFormWithFormData(formData, form);
-      validateForm(formData, linkRedirect);
-    }
+  fillFormWithFormData(formData, form);
+  validateForm(formData, linkRedirect);
+}
 
-    form.addEventListener('change', (evt) => {
-      formData[evt.target.name] = evt.target.value;
-      localStorage.setItem('formData', JSON.stringify(formData));
+form.addEventListener('change', (evt) => {
+  formData[evt.target.name] = evt.target.value;
+  localStorage.setItem('formData', JSON.stringify(formData));
 
-      validateForm(formData, linkRedirect);
-    }, true);
+  validateForm(formData, linkRedirect);
+}, true);
 
-    buttonCopy.addEventListener('click', (evt) => {
-      evt.preventDefault();
+buttonCopy.addEventListener('click', (evt) => {
+  evt.preventDefault();
 
-      if (validateForm(formData)) {
-        const {
-          typeOfSearch, date
-        } = createSearchFilter(formData);
+  if (validateForm(formData)) {
+    const {
+      typeOfSearch, date
+    } = createSearchFilter(formData);
 
-        navigator.clipboard.writeText(`${typeOfSearch} ${date}`)
-      }
-    })
+    navigator.clipboard.writeText(`${typeOfSearch} ${date}`)
+  }
+})
 
   </script>
 </body>

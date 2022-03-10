@@ -1,3 +1,4 @@
+
 :root {
   --gray: #C4C4C4;
   --black: #000000;
@@ -7,7 +8,34 @@
   --button-light-blue: #76A4FF;
   --input-border-blue: #3878F9;
   --gray-op-2: rgb(139, 148, 158, 0.2);
+
+  --radius:10px;
 }
+/*BASE*/
+*{
+  margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;;
+}
+.d-none{
+  display: none !important;
+}
+.mt-3 {
+  margin-top: 1rem !important;
+}
+.mt--6{
+  margin-top: -4rem !important;
+}
+.p-relative{
+  position: relative !important;
+}
+.p-absolute{
+  position: absolute !important;
+}
+
+
 body {
   font-size: 1.1rem;
   color: var(--black);
@@ -66,17 +94,16 @@ body {
 }
 
 .input, .fieldset {
-  width: 220px;
-  height: 38px;
-  margin-top: 3px;
-  padding: 5px 12px;
-  font-size: 1.1rem;
+  width:100% ;
+  line-height:16px;
+  margin-top: 0.5em;
+  padding: .6em .7em;
+  font-size: 1rem;
   color: var(--black);
-  border-radius: 10px;
-  margin-bottom: -5px;
-  font-family: Montserrat;
+  border-radius: var(--radius);
   border: 1px solid var(--gray);
   background-color: var(--white);
+  font-family: Montserrat;
 }
 .input:focus {
   outline-width: 0px;
@@ -85,18 +112,24 @@ body {
 .div {
   text-align: center;
 }
+.align-r{
+  text-align: right;
+}
+
 .btn {
-  width: 75px;
-  border: none;
-  height: 27px;
-  padding: auto;
-  cursor: pointer;
-  margin: 5px 8px 0;
-  color:var(--white);
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
   text-align: center;
-  border-radius: 10px;
   text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  border: none;
   font-family: Montserrat;
+  color:var(--white);
   background-color: var(--button-dark-blue);
 }
 .btn:disabled {
@@ -114,6 +147,9 @@ body {
   border: 3px solid var(--gray);
   background-color: var(--button-dark-blue);
 }
+.btn-sm{
+  width: 30%;
+}
 .btn--secondary {
   color: var(--white);
   background-color: var(--button-light-blue);
@@ -125,8 +161,10 @@ body {
   gap: 12px;
   display: grid;
   padding: 30px;
-  max-width: 526px;
+  max-width: 450px;
   max-height: 388px;
+  width: 90%;
+  margin: auto;
   border-radius: 13px;
   box-sizing: border-box;
   grid-template-columns: 1fr;
@@ -134,18 +172,9 @@ body {
   background-color: var(--white);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.calendary_filter__date_search {
-  height: 26px;
-  width: 193px;
-  padding: 5px 12px;
-  font-size: 1.1rem;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  color: var(--black);
-  font-family: Montserrat;
-  border: 1px solid var(--gray);
-}
+
 .calendary_filter__date_search:focus {
   outline-width: 0px;
   border-color: var(--input-border-blue);
 }
+
