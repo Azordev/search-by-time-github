@@ -12,13 +12,59 @@ body {
   font-size: 1.1rem;
   color: var(--black);
   background-color: var(--white);
+  background-image: url('../assets/background.png');
+  background-position: center center;
+  background-size: cover;
 }
 #app {
-  height: 97vh;
+  height: 95vh;
+}
+
+.form {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;    
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 6.25rem;
+  margin-top: 25px;
+}
+
+.logo img {
+  width: 180px;
+  height: 140px;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+}
+
+.world {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.select-language {
+  display: flex;
+  align-items: center;
+}
+
+.content-select select {
+  width: 203px;
+  height: 44px;
+  left: 1321px;
+  top: 68px;
+  background: #FFFFFF;
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
 .input, .fieldset {
   width: 220px;
   height: 38px;
