@@ -1,190 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calendar to search at GitHub</title>
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-  <link rel="stylesheet" href="src/css/style.css">
-</head>
-<body>
-  <main id="app">
-    <div class="header">
-      <div class="logo">
-        <img src="./src/assets/logo.png" alt="Azordev logo">
-      </div>
-      <div class="language">
-        <div class="world">
-          <img src="./src/assets/world.png" alt="world icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar to search at GitHub</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/css/style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <div class="header">
+        <div class="logo">
+          <img src="./src/assets/logo.png" alt="Azordev logo" />
         </div>
-        <div class="content-select">
-          <select>
-            <option default>Select language</option>
-            <option>English</option>
-            <option>Spanish</option>
-          </select>
-        </div>        
-      </div>
-    </div>
-    <div style="display: block">
-    <div class="div">
-      <img src="src/assets/git.png" width="100px" height="100px"/>
-    </div>
-    <div>
-    <form id="calendary_filter" style="margin-top: 15px" class="calendary_filter">
-        <div id="tab_1" class="box ">
-          
-         
-          <select id="input_issues" name="issues" class="input ">
-            <option value="#">
-              issues
-            </option>
-            <option value="#">
-              issues #
-            </option>
-            <option value="#">
-              issues #
-          </select>
-         
-
-          <input 
-            type="text" 
-            placeholder="User/Organization" 
-            list="users_history"
-            id="input_user" 
-            name="user" 
-            class="input calendary_filter__repository_name " 
-            
-          />
-          <input 
-            type="text" 
-            placeholder="Repository name" 
-            list="repositories_history"
-            id="input_repository" 
-            name="repository" 
-            class="input calendary_filter__repository_name " 
-          />
-
-          <div class="align-r mt-3">
-            <button id="btn_next" class="btn btn-sm">Next</button>
+        <div class="language">
+          <div class="world">
+            <img src="./src/assets/world.png" alt="world icon" />
           </div>
-
-        </div>  
-
-        <div id="tab_2" class="box d-none">
-       
-          <select id="input_condition" name="condition" class="input ">
-            <option value="after">
-              After of
-            </option>
-            <option value="before">
-              Before of
-            </option>
-            <option value="equals">
-              Equals to
-            </option>
-          </select>
-          
-          <input type="date" name="date" id="input_date" class="calendary_filter__date_search input" />
-
-          <div class="p-relative">
-            <button id="goback" class="btn--back p-absolute mt--6">
-              <img src="./src/assets/arrow.png" style="margin-top: 3px" width="15px" height="15px" alt=""/>
-            </button>
-          </div>
-
-        
-        
-          <div class="div mt-3">
-            <button id="redirectToSearch" class="btn btn-sm">Ir</button>
-            <button id="copySearch" class="btn btn--secondary btn-sm">Copiar</button>
+          <div class="content-select">
+            <select>
+              <option default>Select language</option>
+              <option>English</option>
+              <option>Spanish</option>
+            </select>
           </div>
         </div>
-        <datalist id="repositories_history">
-          <!-- TODO: ADD repositories history on this datalist -->
-        </datalist>
-        <datalist id="users_history">
-          <!-- TODO: ADD users history on this datalist -->
-        </datalist>
-        
-        
-    </form>
-  </div>
-</div>
-  </main>
-  
-  <script type="module">
-   import { getFromLSOrDefaultValue, validateForm, createSearchFilter, getFormValues } from './src/js/utils.js';
+      </div>
+      <div style="display: block">
+        <div class="div">
+          <img src="src/assets/git.png" width="100px" height="100px" />
+        </div>
+        <div>
+          <form
+            id="calendary_filter"
+            style="margin-top: 15px"
+            class="calendary_filter"
+          >
+            <div id="tab_1" class="box">
+              <select id="type_of_search" name="typeOfSearch" class="input">
+                <option value="issue">Issues</option>
+                <option value="pr">Pull Request</option>
+              </select>
 
-/*
-* STEPS FORM 
-*/
-const btnNext =document.getElementById('btn_next');
-const goBack =document.getElementById('goback');
-const tab1 = document.getElementById('tab_1');
-const tab2 = document.getElementById('tab_2');
+              <input
+                type="text"
+                placeholder="User/Organization"
+                list="users_history"
+                id="input_user"
+                name="user"
+                class="input calendary_filter__repository_name"
+              />
+              <input
+                type="text"
+                placeholder="Repository name"
+                list="repositories_history"
+                id="input_repository"
+                name="repository"
+                class="input calendary_filter__repository_name"
+              />
 
-btnNext.addEventListener('click',function(evt){
-  evt.preventDefault();
-  tab2.classList.remove('d-none');
-  tab1.classList.add('d-none');
-});
+              <div class="align-r mt-3">
+                <button id="btn_next" class="btn btn-sm">Next</button>
+              </div>
+            </div>
 
-goBack.addEventListener('click',function(evt){
-  evt.preventDefault();
-  tab1.classList.remove('d-none');
-  tab2.classList.add('d-none');
-});
+            <div id="tab_2" class="box d-none">
+              <select id="input_condition" name="condition" class="input">
+                <option value="after">After of</option>
+                <option value="before">Before of</option>
+                <option value="equals">Equals to</option>
+              </select>
 
-const form = document.forms['calendary_filter'];
-const formData = getFromLSOrDefaultValue('formData', getFormValues(form));
-const linkRedirect = document.getElementById('redirectToSearch');
-const buttonCopy = form['copySearch'];
+              <input
+                type="date"
+                name="date"
+                id="input_date"
+                class="calendary_filter__date_search input"
+              />
 
-const fillFormWithFormData = (formData, form) => {
-  if (!form) return;
+              <div class="p-relative">
+                <button id="goback" class="btn--back p-absolute mt-6">
+                  <img
+                    src="./src/assets/arrow.png"
+                    style="margin-top: 3px"
+                    width="15px"
+                    height="15px"
+                    alt=""
+                  />
+                </button>
+              </div>
 
-  for (const [key, data] of Object.entries(formData)) {
-    try {
-      form[key].value = data;
-    } catch (error) {
-      debugger;
-      console.error(error);
-    }
-  }
-}
+              <div class="div mt-3">
+                <button id="redirectToSearch" class="btn btn-sm">Ir</button>
+                <button id="copySearch" class="btn btn--secondary btn-sm">
+                  Copiar
+                </button>
+              </div>
+            </div>
+            <datalist id="repositories_history">
+              <!-- TODO: ADD repositories history on this datalist -->
+            </datalist>
+            <datalist id="users_history">
+              <!-- TODO: ADD users history on this datalist -->
+            </datalist>
+          </form>
+        </div>
+      </div>
+    </main>
 
-window.onload = () => {
-  const date = new Date();
-  const fullDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDay() >= 10 ? date.getDate() : '0' + date.getDate() }`;
+    <script type="module">
+      import {
+        getFromLSOrDefaultValue,
+        validateForm,
+        createSearchFilter,
+        getFormValues,
+      } from "./src/js/utils.js";
 
-  form.date.value = fullDate;
-  linkRedirect.classList.add('btn--disabled');
+      /*
+       * STEPS FORM
+       */
+      const btnNext = document.getElementById("btn_next");
+      const goBack = document.getElementById("goback");
+      const tab1 = document.getElementById("tab_1");
+      const tab2 = document.getElementById("tab_2");
 
-  fillFormWithFormData(formData, form);
-  validateForm(formData, linkRedirect);
-}
+      const switchTab = (evt) => {
+        evt.preventDefault();
+        tab1.classList.toggle("d-none");
+        tab2.classList.toggle("d-none");
+      };
 
-form.addEventListener('change', (evt) => {
-  formData[evt.target.name] = evt.target.value;
-  localStorage.setItem('formData', JSON.stringify(formData));
+      btnNext.addEventListener("click", switchTab);
 
-  validateForm(formData, linkRedirect);
-}, true);
+      goBack.addEventListener("click", switchTab);
 
-buttonCopy.addEventListener('click', (evt) => {
-  evt.preventDefault();
+      const form = document.forms["calendary_filter"];
+      const formData = getFromLSOrDefaultValue("formData", getFormValues(form));
+      const linkRedirect = document.getElementById("redirectToSearch");
+      const buttonCopy = form["copySearch"];
 
-  if (validateForm(formData)) {
-    const {
-      typeOfSearch, date
-    } = createSearchFilter(formData);
+      const fillFormWithFormData = (formData, form) => {
+        if (!form) return;
 
-    navigator.clipboard.writeText(`${typeOfSearch} ${date}`)
-  }
-})
+        for (const [key, data] of Object.entries(formData)) {
+          try {
+            form[key].value = data;
+          } catch (error) {
+            debugger;
+            console.error(error);
+          }
+        }
+      };
 
-  </script>
-</body>
+      window.onload = () => {
+        const date = new Date();
+        const fullDate = `${date.getFullYear()}-${date.getMonth()}-${
+          date.getDay() >= 10 ? date.getDate() : "0" + date.getDate()
+        }`;
+
+        form.date.value = fullDate;
+        linkRedirect.classList.add("btn--disabled");
+
+        fillFormWithFormData(formData, form);
+        validateForm(formData, linkRedirect);
+      };
+
+      form.addEventListener(
+        "change",
+        (evt) => {
+          formData[evt.target.name] = evt.target.value;
+          localStorage.setItem("formData", JSON.stringify(formData));
+
+          validateForm(formData, linkRedirect);
+        },
+        true
+      );
+
+      buttonCopy.addEventListener("click", (evt) => {
+        evt.preventDefault();
+
+        if (validateForm(formData)) {
+          const { typeOfSearch, date } = createSearchFilter(formData);
+
+          navigator.clipboard.writeText(`${typeOfSearch} ${date}`);
+        }
+      });
+    </script>
+  </body>
 </html>
