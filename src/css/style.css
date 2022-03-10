@@ -20,36 +20,36 @@ body {
   height: 95vh;
 }
 
-.form{
+.form {
   display: flex;
   align-items: center;
   justify-content: center;    
 }
 
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   padding: 0 6.25rem;
   margin-top: 25px;
 }
 
-.logo img{
+.logo img {
   width: 180px;
   height: 140px;
 }
 
-.language{
+.language {
   display: flex;
   align-items: center;
 }
 
-.world{
+.world {
   display: flex;
   align-items: center;
   margin-right: 10px;
 }
 
-.select-language{
+.select-language {
   display: flex;
   align-items: center;
 }
