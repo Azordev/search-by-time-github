@@ -8,7 +8,6 @@
 :root {
   --gray: #C4C4C4;
   --black: #000000;
- 
   --white: #FFFFFF;
   --gray-op-1: #C9D1D9;
   --button-dark-blue: #001E66;
@@ -20,7 +19,6 @@
 body {
   font-size: 1.1rem;
   color: var(--black);
- 
   background-color: var(--white);
   background-image: url('../assets/background.png');
   background-position: center center;
@@ -29,17 +27,14 @@ body {
 #app {
   height: 95vh;
 }
-.
-form {
+.form {
   display: flex;
   align-items: center;
- 
   justify-content: center;
 }
 .header {
   display: flex;
   justify-content: space-between;
- 
   padding: 0 6.25rem;
   margin-top: 25px;
 }
@@ -47,27 +42,22 @@ form {
   width: 180px;
   height: 140px;
 }
-
 .language {
   display: flex;
   align-items: center;
 }
-
 .world {
   display: flex;
   align-items: center;
- 
   margin-right: 10px;
 }
 .select-language {
   display: flex;
   align-items: center;
 }
-
 .content-select select {
   width: 203px;
   height: 44px;
- 
   left: 1321px;
   top: 68px;
   background: #FFFFFF;
@@ -78,7 +68,6 @@ form {
 .input,
 .fieldset {
   width: 100%;
- 
   line-height: 16px;
   margin-top: 0.5em;
   padding: .6em .7em;
@@ -93,19 +82,15 @@ form {
   outline-width: 0px;
   border-color: var(--input-border-blue);
 }
-
 .div {
   text-align: center;
 }
-.
-align-r {
+.align-r {
   text-align: right;
 }
-.
-btn {
+.btn {
   display: inline-block;
   font-weight: 400;
- 
   line-height: 1.5;
   text-align: center;
   text-decoration: none;
@@ -122,13 +107,11 @@ btn {
 .btn:disabled {
   color: var(--gray-op-2);
   border: 1px solid var(--gray);
- 
   background-color: var(--white);
 }
 .btn--back {
   width: 45px;
   height: 45px;
- 
   cursor: pointer;
   margin-right: 4px;
   margin-left: -53px;
@@ -139,23 +122,20 @@ btn {
 .btn-sm {
   width: 30%;
 }
-.
-btn--secondary {
+.btn--secondary {
   color: var(--white);
   background-color: var(--button-light-blue);
 }
-
 .btn--secondary:disabled {
   border: 1px solid var(--gray-op-2);
 }
-.
-calendary_filter {
+.calendary_filter {
   gap: 12px;
   display: grid;
- 
   padding: 30px;
   max-width: 450px;
   max-height: 388px;
+  min-width: min-content;
   width: 90%;
   margin: auto;
   border-radius: 13px;
