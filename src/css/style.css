@@ -5,10 +5,10 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 :root {
   --gray: #C4C4C4;
   --black: #000000;
+ 
   --white: #FFFFFF;
   --gray-op-1: #C9D1D9;
   --button-dark-blue: #001E66;
@@ -17,33 +17,32 @@
   --gray-op-2: rgb(139, 148, 158, 0.2);
   --radius: 10px;
 }
-
 body {
   font-size: 1.1rem;
   color: var(--black);
+ 
   background-color: var(--white);
   background-image: url('../assets/background.png');
   background-position: center center;
   background-size: cover;
 }
-
 #app {
   height: 95vh;
 }
-
-.form {
+.
+form {
   display: flex;
   align-items: center;
+ 
   justify-content: center;
 }
-
 .header {
   display: flex;
   justify-content: space-between;
+ 
   padding: 0 6.25rem;
   margin-top: 25px;
 }
-
 .logo img {
   width: 180px;
   height: 140px;
@@ -57,9 +56,9 @@ body {
 .world {
   display: flex;
   align-items: center;
+ 
   margin-right: 10px;
 }
-
 .select-language {
   display: flex;
   align-items: center;
@@ -68,6 +67,7 @@ body {
 .content-select select {
   width: 203px;
   height: 44px;
+ 
   left: 1321px;
   top: 68px;
   background: #FFFFFF;
@@ -75,10 +75,10 @@ body {
   box-sizing: border-box;
   border-radius: 10px;
 }
-
 .input,
 .fieldset {
   width: 100%;
+ 
   line-height: 16px;
   margin-top: 0.5em;
   padding: .6em .7em;
@@ -89,7 +89,6 @@ body {
   background-color: var(--white);
   font-family: Montserrat, sans-serif;
 }
-
 .input:focus {
   outline-width: 0px;
   border-color: var(--input-border-blue);
@@ -98,14 +97,15 @@ body {
 .div {
   text-align: center;
 }
-
-.align-r {
+.
+align-r {
   text-align: right;
 }
-
-.btn {
+.
+btn {
   display: inline-block;
   font-weight: 400;
+ 
   line-height: 1.5;
   text-align: center;
   text-decoration: none;
@@ -119,16 +119,16 @@ body {
   color: var(--white);
   background-color: var(--button-dark-blue);
 }
-
 .btn:disabled {
   color: var(--gray-op-2);
   border: 1px solid var(--gray);
+ 
   background-color: var(--white);
 }
-
 .btn--back {
   width: 45px;
   height: 45px;
+ 
   cursor: pointer;
   margin-right: 4px;
   margin-left: -53px;
@@ -136,12 +136,11 @@ body {
   border: 3px solid var(--gray);
   background-color: var(--button-dark-blue);
 }
-
 .btn-sm {
   width: 30%;
 }
-
-.btn--secondary {
+.
+btn--secondary {
   color: var(--white);
   background-color: var(--button-light-blue);
 }
@@ -149,10 +148,11 @@ body {
 .btn--secondary:disabled {
   border: 1px solid var(--gray-op-2);
 }
-
-.calendary_filter {
+.
+calendary_filter {
   gap: 12px;
   display: grid;
+ 
   padding: 30px;
   max-width: 450px;
   max-height: 388px;
@@ -165,7 +165,6 @@ body {
   background-color: var(--white);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 .calendary_filter__date_search:focus {
   outline-width: 0px;
   border-color: var(--input-border-blue);
