@@ -35,11 +35,7 @@
           <img src="src/assets/git.png" width="100px" height="100px" />
         </div>
         <div>
-          <form
-            id="calendary_filter"
-            style="margin-top: 15px"
-            class="calendary_filter"
-          >
+          <form id="calendary_filter" class="calendary_filter m-3">
             <div id="tab_1" class="box">
               <select id="type_of_search" name="typeOfSearch" class="input">
                 <option value="issue">Issues</option>
@@ -125,11 +121,11 @@
        */
       const btnNext = document.getElementById("btn_next");
       const goBack = document.getElementById("goback");
-      const tab1 = document.getElementById("tab_1");
-      const tab2 = document.getElementById("tab_2");
 
       const switchTab = (evt) => {
         evt.preventDefault();
+        const tab1 = document.getElementById("tab_1");
+        const tab2 = document.getElementById("tab_2");
         tab1.classList.toggle("d-none");
         tab2.classList.toggle("d-none");
       };

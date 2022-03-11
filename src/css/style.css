@@ -9,7 +9,7 @@
   --gray-op-2: rgb(139, 148, 158, 0.2);
   --radius: 10px;
 }
-*{
+* {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -18,6 +18,9 @@
 }
 .d-none {
   display: none !important;
+}
+.m-2 {
+  margin-top: 0.75rem !important;
 }
 .mt-3 {
   margin-top: 1rem !important;
