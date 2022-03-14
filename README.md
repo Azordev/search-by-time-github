@@ -10,10 +10,10 @@
 
 <!-- PROJECT LOGO -->
 
-|                                                   A tool to do search by time in GitHub repositories                                                |
+|                            A tool to do search by time in GitHub repositories                            |
 | :------------------------------------------------------------------------------------------------------: |
 |                                              ![app-icon][]                                               |
-|Azordev's tracking issues and pull request tool|
+|                             Azordev's tracking issues and pull request tool                              |
 |                          [🐞 Report a bug or 🙋‍♂️ request a feature][issues-url]                           |
 | [![contributions welcome][contributions-welcome]][issues-url] [![License][badge-apache]][apache-license] |
 
@@ -30,7 +30,6 @@
   - [Contributing](#contributing)
   - [Show your support](#show-your-support)
   - [License](#license)
-
 
 ## Search by time Github docs
 
@@ -50,7 +49,7 @@ As vanilla javascript project, you can run it of multiple ways, for example u ca
 ### Let's to run it
 
 1. Open the project as a new workspace in your code editor.
-2. Start the live server extension. 
+2. Start the live server extension.
 3. Start to develop!
 
 ### Features
@@ -130,15 +129,15 @@ Once we have done a commit & push in our branch, a notification with a yellow ba
 
 ## Collaborators
 
-| [Israel Laguan][author-github] | ![email-icon][] Email me to [contact@israellaguan.com][author-email] / ![linkedin-icon][] Connect to [my Linkedin][author-linkedin] |
-| :----------------------------: | :---------------------------------------------------------------------------------------------------------------------------------: |
-|        ![author-pic][]         |                                                                                                                          |
-|  [Victor Peña][victor-github]  |  ![email-icon][] Email me to [victordev2002@gmail.com][victor-email] / ![linkedin-icon][] Connect to [my Linkedin][victor-linkedin]    |
-|        ![victor-pic][]         |                                                                                                                          |
-|[Emmanuel Azócar][emmanuel-github]|                          ![email-icon][] Email me to [azocarmel@gmail.com][emmanuel-email]                                       |
-|        ![emmanuel-pic][]        |                                                                                                                          |
-| [Angelica Molina][ange-github] |                              ![email-icon][] Email me to [angeli.molina1@gmail.com][ange-email]                                     |
-|         ![ange-pic][]         |                                                                                                                          |
+|   [Israel Laguan][author-github]   | ![email-icon][] Email me to [contact@israellaguan.com][author-email] / ![linkedin-icon][] Connect to [my Linkedin][author-linkedin] |
+| :--------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------: |
+|          ![author-pic][]           |                                                                                                                                     |
+|    [Victor Peña][victor-github]    | ![email-icon][] Email me to [victordev2002@gmail.com][victor-email] / ![linkedin-icon][] Connect to [my Linkedin][victor-linkedin]  |
+|          ![victor-pic][]           |                                                                                                                                     |
+| [Emmanuel Azócar][emmanuel-github] |                                  ![email-icon][] Email me to [azocarmel@gmail.com][emmanuel-email]                                  |
+|         ![emmanuel-pic][]          |                                                                                                                                     |
+|   [Angelica Molina][ange-github]   |                                 ![email-icon][] Email me to [angeli.molina1@gmail.com][ange-email]                                  |
+|           ![ange-pic][]            |                                                                                                                                     |
 
 ## Contributing
 
@@ -170,40 +169,29 @@ Feel free to fork this project and improve it!
 [victor-pic]: https://avatars.githubusercontent.com/u/66505715?v=4
 [victor-email]: mailto:victordev2002@gmail.com
 [victor-linkedin]: https://www.linkedin.com/in/v%C3%ADctor-pe%C3%B1a-348a3918a/
-
 [emmanuel-github]: https://github.com/e-azocar
 [emmanuel-pic]: https://avatars.githubusercontent.com/u/61360270?v=4
 [emmanuel-email]: mailto:azocarmel@gmail.com
-
 [roman-github]: https://github.com/romanrguez192
 [roman-pic]: https://avatars.githubusercontent.com/u/69876913?s=200&v=4
 [roman-email]: mailto:romanrodri192@gmail.com
-
 [tony-github]: https://github.com/Tonytarco
 [tony-pic]: https://avatars.githubusercontent.com/u/37258801?s=200&v=4
 [tony-email]: mailto:tonytarco@hotmail.com
-
 [ange-github]: https://github.com/angelik0828
 [ange-pic]: https://avatars.githubusercontent.com/u/4030477?s=200&v=4
 [ange-email]: mailto:angeli.molina1@gmail.com
-
 [ild-github]: https://github.com/ildebr
 [ild-pic]: https://avatars.githubusercontent.com/u/73916430?v=4
 [ild-email]: mailto:ildebrandoefrain@gmail.com
-
-
 [contributors-shield]: https://img.shields.io/github/contributors/Azordev/frontend-template?style=for-the-badge
 [contributors-url]: https://github.com/Azordev/frontend-template/graphs/contributors
-
-[forks-shield]: https://img.shields.io/github/forks/Azordev/frontend-template?style=for-the-badge 
+[forks-shield]: https://img.shields.io/github/forks/Azordev/frontend-template?style=for-the-badge
 [forks-url]: https://github.com/Azordev/frontend-template/network/members
-
 [stars-shield]: https://img.shields.io/github/stars/Azordev/frontend-template?style=for-the-badge
 [stars-url]: https://github.com/Azordev/frontend-template/stargazers
-
 [issues-open-shield]: https://img.shields.io/github/issues/Azordev/frontend-template?style=for-the-badge
 [issues-closed-shield]: https://img.shields.io/github/issues-closed/Azordev/frontend-template?style=for-the-badge
-
 [javascript]: https://img.shields.io/badge/JAVASCRIPT-ES6%2B-F7DF1E?style=for-the-badge&logo=javascript
 [css]: https://img.shields.io/badge/style-CSS-1572B6?style=for-the-badge&logo=css3
 [builtwithlove]: https://forthebadge.com/images/badges/built-with-love.svg
