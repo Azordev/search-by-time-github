@@ -68,29 +68,16 @@ export const validateForm = () => {
     ".box.d-inline input,.box.d-inline select"
   );
 
-  let isValid = true;
-  fields.forEach((field) => {
-    const idField = field.getAttribute("id");
-    const spanError = document.getElementById('error_'+idField);
+  const isValid =
+    filterData.user &&
+    filterData.repository &&
+    filterData.typeOfSearch &&
+    filterData.date;
 
-    const value = field.value.trim();
-    if (fielValid[idField].required && !value) {
-      field.classList.add("error");
-      spanError.classList.add("span_error");
-      spanError.innerHTML =
-        "Please enter the required field";
-      isValid = false;
-    } else {
-      field.classList.remove("error");
-      spanError.classList.remove("span_error");
-      spanError.innerHTML = "";
-    }
+  if (isValid && anchorElement) changeAnchorLink(anchorElement, filterData);
 
-  })
-  
   return isValid;
 };
-
 
 export const getFormValues = (form) => {
 	if (!form) return;
