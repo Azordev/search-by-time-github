@@ -68,15 +68,15 @@ export const validateForm = () => {
     ".box.d-inline input,.box.d-inline select"
   );
 
-  const isValid =
+	const isValid =
     filterData.user &&
     filterData.repository &&
     filterData.typeOfSearch &&
     filterData.date;
 
-  if (isValid && anchorElement) changeAnchorLink(anchorElement, filterData);
+	if (isValid && anchorElement) changeAnchorLink(anchorElement, filterData);
 
-  return isValid;
+	return isValid;
 };
 
 export const getFormValues = (form) => {
