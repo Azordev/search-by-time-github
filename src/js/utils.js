@@ -69,10 +69,10 @@ export const validateForm = () => {
   );
 
 	const isValid =
-    filterData.user &&
-    filterData.repository &&
-    filterData.typeOfSearch &&
-    filterData.date;
+		filterData.user &&
+		filterData.repository &&
+		filterData.typeOfSearch &&
+		filterData.date;
 
 	if (isValid && anchorElement) changeAnchorLink(anchorElement, filterData);
 
