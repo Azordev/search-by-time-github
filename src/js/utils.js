@@ -21,7 +21,7 @@ export const createSearchFilter = (formData) => {
 
 	const searchTypeOfSearch = typeOfSearch ? `is:${typeOfSearch}` : undefined;
 	const searchDate =
-    searchCondition && date ? `closed:${searchCondition}${date}` : undefined;
+		searchCondition && date ? `closed:${searchCondition}${date}` : undefined;
 
 	return {
 		user,
@@ -50,10 +50,10 @@ export const validateForm = (formData, anchorElement) => {
 	const filterData = createSearchFilter(formData);
 
 	const isValid =
-    filterData.user &&
-    filterData.repository &&
-    filterData.typeOfSearch &&
-    filterData.date;
+		filterData.user &&
+		filterData.repository &&
+		filterData.typeOfSearch &&
+		filterData.date;
 
 	if (isValid && anchorElement) changeAnchorLink(anchorElement, filterData);
 
