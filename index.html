@@ -1,83 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Calendar to search at GitHub</title>
-		<link
-			href="https://fonts.googleapis.com/css?family=Montserrat"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="src/css/style.css" />
-		<link rel="stylesheet" href="src/css/utils.css" />
-	</head>
-	<body>
-		<main id="app">
-			<div class="header">
-				<div class="logo">
-					<img src="./src/assets/logo.png" alt="Azordev logo" />
-				</div>
-				<div class="language">
-					<div class="world">
-						<img src="./src/assets/world.png" alt="world icon" />
-					</div>
-					<div class="content-select">
-						<select>
-							<option default>Select language</option>
-							<option>English</option>
-							<option>Spanish</option>
-						</select>
-					</div>
-				</div>
-			</div>
-			<div style="display: block">
-				<div class="div">
-					<img src="src/assets/git.png" width="100px" height="100px" />
-				</div>
-				<div>
-					<form id="calendary_filter" class="calendary_filter m-3">
-						<div id="tab_1" class="box">
-							<select id="type_of_search" name="typeOfSearch" class="input">
-								<option value="issue">Issues</option>
-								<option value="pr">Pull Request</option>
-							</select>
-
-							<input
-								type="text"
-								placeholder="User/Organization"
-								list="users_history"
-								id="input_user"
-								name="user"
-								class="input calendary_filter__repository_name"
-							/>
-							<input
-								type="text"
-								placeholder="Repository name"
-								list="repositories_history"
-								id="input_repository"
-								name="repository"
-								class="input calendary_filter__repository_name"
-							/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar to search at GitHub</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/utils.css" />
+  </head>
+  <body>
+    <main id="app">
+      <div class="header">
+        <div class="logo">
+          <img src="./src/assets/logo.png" alt="Azordev logo" />
+        </div>
+        <div class="language">
+          <div class="world">
+            <img src="./src/assets/world.png" alt="world icon" />
+          </div>
+          <div class="content-select">
+            <select>
+              <option default>Select language</option>
+              <option>English</option>
+              <option>Spanish</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div style="display: block">
+        <div class="div">
+          <img src="src/assets/git.png" width="100px" height="100px" />
+        </div>
+        <div>
+          <form id="calendary_filter" class="calendary_filter m-3">
+            <div id="tab_1" class="box d-inline">
+              <div>
+                <select id="type_of_search" name="typeOfSearch" class="input">
+                  <option value="issue">Issues</option>
+                  <option value="pr">Pull Request</option>
+                </select>
+                <span></span>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="User/Organization"
+                  list="users_history"
+                  id="input_user"
+                  name="user"
+                  class="input calendary_filter__repository_name"
+                />
+                <span></span>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Repository name"
+                  list="repositories_history"
+                  id="input_repository"
+                  name="repository"
+                  class="input calendary_filter__repository_name"
+                />
+                <span></span>
+              </div>
 
 							<div class="align-r mt-3">
 								<button id="btn_next" class="btn btn-sm">Next</button>
 							</div>
 						</div>
 
-						<div id="tab_2" class="box d-none">
-							<select id="input_condition" name="condition" class="input">
-								<option value="after">After of</option>
-								<option value="before">Before of</option>
-								<option value="equals">Equals to</option>
-							</select>
+            <div id="tab_2" class="box">
+              <div>
+                <select id="input_condition" name="condition" class="input">
+                  <option value="after">After of</option>
+                  <option value="before">Before of</option>
+                  <option value="equals">Equals to</option>
+                </select>
+                <span></span>
+              </div>
 
-							<input
-								type="date"
-								name="date"
-								id="input_date"
-								class="calendary_filter__date_search input"
-							/>
+              <div>
+                <input
+                  type="date"
+                  name="date"
+                  id="input_date"
+                  class="calendary_filter__date_search input"
+                />
+                <span></span>
+              </div>
 
 							<div class="p-relative">
 								<button id="goback" class="btn--back p-absolute mt-6">
@@ -117,21 +131,27 @@
 				getFormValues,
 			} from './src/js/utils.js';
 
-			/*
-			 * STEPS FORM
-			 */
-			const btnNext = document.getElementById('btn_next');
-			const goBack = document.getElementById('goback');
+      /*
+       * STEPS FORM
+       */
 
-			const switchTab = (evt) => {
-				evt.preventDefault();
-				const tab1 = document.getElementById('tab_1');
-				const tab2 = document.getElementById('tab_2');
-				tab1.classList.toggle('d-none');
-				tab2.classList.toggle('d-none');
-			};
+      const btnNext = document.getElementById("btn_next");
+      const goBack = document.getElementById("goback");
 
-			btnNext.addEventListener('click', switchTab);
+      const switchTab = (evt) => {
+        evt.preventDefault();
+        const tab1 = document.getElementById("tab_1");
+        const tab2 = document.getElementById("tab_2");
+        tab1.classList.toggle("d-inline");
+        tab2.classList.toggle("d-inline");
+      };
+
+      btnNext.addEventListener("click", function (evt) {
+        evt.preventDefault();
+        if (validateForm()) {
+          switchTab(evt);
+        }
+      });
 
 			goBack.addEventListener('click', switchTab);
 
@@ -162,9 +182,10 @@
 				form.date.value = fullDate;
 				linkRedirect.classList.add('btn--disabled');
 
-				fillFormWithFormData(formData, form);
-				validateForm(formData, linkRedirect);
-			};
+        fillFormWithFormData(formData, form);
+        //validateForm(formData, linkRedirect);
+        validateForm();
+      };
 
 			form.addEventListener(
 				'change',
@@ -172,20 +193,30 @@
 					formData[evt.target.name] = evt.target.value;
 					localStorage.setItem('formData', JSON.stringify(formData));
 
-					validateForm(formData, linkRedirect);
-				},
-				true
-			);
+          //validateForm(formData, linkRedirect);
+          validateForm();
+        },
+        true
+      );
 
 			buttonCopy.addEventListener('click', (evt) => {
 				evt.preventDefault();
 
-				if (validateForm(formData)) {
-					const { typeOfSearch, date } = createSearchFilter(formData);
+        //if (validateForm(formData)) {
+        if (validateForm()) {
+          const { typeOfSearch, date } = createSearchFilter(formData);
 
-					navigator.clipboard.writeText(`${typeOfSearch} ${date}`);
-				}
-			});
-		</script>
-	</body>
+          navigator.clipboard.writeText(`${typeOfSearch} ${date}`);
+        }
+      });
+
+      linkRedirect.addEventListener("click", (evt) => {
+        evt.preventDefault();
+
+        if (validateForm()) {
+          //action
+        }
+      });
+    </script>
+  </body>
 </html>
