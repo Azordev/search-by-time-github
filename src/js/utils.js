@@ -65,29 +65,29 @@ export const validateForm = () => {
       required: true,
     },
   };
-  const fiels = document.querySelectorAll(
+  const fields = document.querySelectorAll(
     ".box.d-inline input,.box.d-inline select"
   );
 
   let bool = true;
-  for (var i in fiels) {
-    if (!fiels.hasOwnProperty(i)) continue;
-    const idFiel = fiels[i].getAttribute("id");
+  fields.forEach((field) => {
+    const idFiel = field.getAttribute("id");
 
-    const value = fiels[i].value.trim();
+    const value = field.value.trim();
     if (fielValid[idFiel].required && !value) {
-      fiels[i].classList.add("error");
-      fiels[i].nextElementSibling.classList.add("span_error");
-      fiels[i].nextElementSibling.innerHTML =
+      field.classList.add("error");
+      field.nextElementSibling.classList.add("span_error");
+      field.nextElementSibling.innerHTML =
         "Please enter the required field";
       bool = false;
     } else {
-      fiels[i].classList.remove("error");
-      fiels[i].nextElementSibling.classList.remove("span_error");
-      fiels[i].nextElementSibling.innerHTML = "";
+      field.classList.remove("error");
+      field.nextElementSibling.classList.remove("span_error");
+      field.nextElementSibling.innerHTML = "";
     }
-  }
 
+  })
+  
   return bool;
 };
 
