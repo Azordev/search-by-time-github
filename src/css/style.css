@@ -9,6 +9,7 @@
   --gray: #C4C4C4;
   --black: #000000;
   --white: #FFFFFF;
+  --danger: #FF0000;
   --gray-op-1: #C9D1D9;
   --button-dark-blue: #001E66;
   --button-light-blue: #76A4FF;
@@ -120,7 +121,7 @@ body {
   background-color: var(--button-dark-blue);
 }
 .btn-sm {
-  width: 30%;
+  width: 40%;
 }
 .btn--secondary {
   color: var(--white);
@@ -136,7 +137,7 @@ body {
   max-width: 450px;
   max-height: 388px;
   min-width: min-content;
-  width: 90%;
+  width: 80%;
   margin: auto;
   border-radius: 13px;
   box-sizing: border-box;
@@ -148,4 +149,17 @@ body {
 .calendary_filter__date_search:focus {
   outline-width: 0px;
   border-color: var(--input-border-blue);
+}
+.box {
+  display: none;
+}
+.span_error {
+  width: 100%;
+  background: rgba(255, 0, 0, 0.16);
+  display: flex;
+  border-radius: 5px;
+  padding: 1px 15px;
+  font-size: 14px;
+  font-family: Montserrat, sans-serif;
+  margin-top: 5px;
 }

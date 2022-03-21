@@ -47,15 +47,50 @@ const changeAnchorLink = (anchorElement, { user, repository, typeOfSearch, date 
   }
 }
 
-export const validateForm = (formData, anchorElement) => {
-  const filterData = createSearchFilter(formData);
+export const validateForm = () => {
+  const fielValid = {
+    type_of_search: {
+      required: true,
+    },
+    input_user: {
+      required: true,
+    },
+    input_repository: {
+      required: true,
+    },
+    input_condition: {
+      required: true,
+    },
+    input_date: {
+      required: true,
+    },
+  };
+  const fiels = document.querySelectorAll(
+    ".box.d-inline input,.box.d-inline select"
+  );
 
-  const isValid = filterData.user && filterData.repository && filterData.typeOfSearch && filterData.date;
+  let bool = true;
+  for (var i in fiels) {
+    if (!fiels.hasOwnProperty(i)) continue;
+    const idFiel = fiels[i].getAttribute("id");
 
-  if (isValid && anchorElement) changeAnchorLink(anchorElement, filterData);
-  
-  return isValid;
-}
+    const value = fiels[i].value.trim();
+    if (fielValid[idFiel].required && !value) {
+      fiels[i].classList.add("error");
+      fiels[i].nextElementSibling.classList.add("span_error");
+      fiels[i].nextElementSibling.innerHTML =
+        "Please enter the required field";
+      bool = false;
+    } else {
+      fiels[i].classList.remove("error");
+      fiels[i].nextElementSibling.classList.remove("span_error");
+      fiels[i].nextElementSibling.innerHTML = "";
+    }
+  }
+
+  return bool;
+};
+
 
 export const getFormValues = (form) => {
   if (!form) return;

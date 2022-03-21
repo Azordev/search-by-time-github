@@ -37,47 +37,61 @@
         </div>
         <div>
           <form id="calendary_filter" class="calendary_filter m-3">
-            <div id="tab_1" class="box">
-              <select id="type_of_search" name="typeOfSearch" class="input">
-                <option value="issue">Issues</option>
-                <option value="pr">Pull Request</option>
-              </select>
-
-              <input
-                type="text"
-                placeholder="User/Organization"
-                list="users_history"
-                id="input_user"
-                name="user"
-                class="input calendary_filter__repository_name"
-              />
-              <input
-                type="text"
-                placeholder="Repository name"
-                list="repositories_history"
-                id="input_repository"
-                name="repository"
-                class="input calendary_filter__repository_name"
-              />
+            <div id="tab_1" class="box d-inline">
+              <div>
+                <select id="type_of_search" name="typeOfSearch" class="input">
+                  <option value="issue">Issues</option>
+                  <option value="pr">Pull Request</option>
+                </select>
+                <span></span>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="User/Organization"
+                  list="users_history"
+                  id="input_user"
+                  name="user"
+                  class="input calendary_filter__repository_name"
+                />
+                <span></span>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Repository name"
+                  list="repositories_history"
+                  id="input_repository"
+                  name="repository"
+                  class="input calendary_filter__repository_name"
+                />
+                <span></span>
+              </div>
 
               <div class="align-r mt-3">
                 <button id="btn_next" class="btn btn-sm">Next</button>
               </div>
             </div>
 
-            <div id="tab_2" class="box d-none">
-              <select id="input_condition" name="condition" class="input">
-                <option value="after">After of</option>
-                <option value="before">Before of</option>
-                <option value="equals">Equals to</option>
-              </select>
+            <div id="tab_2" class="box">
+              <div>
+                <select id="input_condition" name="condition" class="input">
+                  <option value="after">After of</option>
+                  <option value="before">Before of</option>
+                  <option value="equals">Equals to</option>
+                </select>
+                <span></span>
+              </div>
 
-              <input
-                type="date"
-                name="date"
-                id="input_date"
-                class="calendary_filter__date_search input"
-              />
+              <div>
+                <input
+                  type="date"
+                  name="date"
+                  id="input_date"
+                  class="calendary_filter__date_search input"
+                />
+                <span></span>
+              </div>
 
               <div class="p-relative">
                 <button id="goback" class="btn--back p-absolute mt-6">
@@ -120,6 +134,7 @@
       /*
        * STEPS FORM
        */
+
       const btnNext = document.getElementById("btn_next");
       const goBack = document.getElementById("goback");
 
@@ -127,11 +142,16 @@
         evt.preventDefault();
         const tab1 = document.getElementById("tab_1");
         const tab2 = document.getElementById("tab_2");
-        tab1.classList.toggle("d-none");
-        tab2.classList.toggle("d-none");
+        tab1.classList.toggle("d-inline");
+        tab2.classList.toggle("d-inline");
       };
 
-      btnNext.addEventListener("click", switchTab);
+      btnNext.addEventListener("click", function (evt) {
+        evt.preventDefault();
+        if (validateForm()) {
+          switchTab(evt);
+        }
+      });
 
       goBack.addEventListener("click", switchTab);
 
@@ -163,7 +183,8 @@
         linkRedirect.classList.add("btn--disabled");
 
         fillFormWithFormData(formData, form);
-        validateForm(formData, linkRedirect);
+        //validateForm(formData, linkRedirect);
+        validateForm();
       };
 
       form.addEventListener(
@@ -172,7 +193,8 @@
           formData[evt.target.name] = evt.target.value;
           localStorage.setItem("formData", JSON.stringify(formData));
 
-          validateForm(formData, linkRedirect);
+          //validateForm(formData, linkRedirect);
+          validateForm();
         },
         true
       );
@@ -180,10 +202,19 @@
       buttonCopy.addEventListener("click", (evt) => {
         evt.preventDefault();
 
-        if (validateForm(formData)) {
+        //if (validateForm(formData)) {
+        if (validateForm()) {
           const { typeOfSearch, date } = createSearchFilter(formData);
 
           navigator.clipboard.writeText(`${typeOfSearch} ${date}`);
+        }
+      });
+
+      linkRedirect.addEventListener("click", (evt) => {
+        evt.preventDefault();
+
+        if (validateForm()) {
+          //action
         }
       });
     </script>
