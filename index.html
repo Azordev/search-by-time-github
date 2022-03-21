@@ -183,7 +183,6 @@
 				linkRedirect.classList.add('btn--disabled');
 
         fillFormWithFormData(formData, form);
-        //validateForm(formData, linkRedirect);
         validateForm();
       };
 
@@ -193,7 +192,6 @@
 					formData[evt.target.name] = evt.target.value;
 					localStorage.setItem('formData', JSON.stringify(formData));
 
-          //validateForm(formData, linkRedirect);
           validateForm();
         },
         true
@@ -202,7 +200,6 @@
 			buttonCopy.addEventListener('click', (evt) => {
 				evt.preventDefault();
 
-        //if (validateForm(formData)) {
         if (validateForm()) {
           const { typeOfSearch, date } = createSearchFilter(formData);
 
