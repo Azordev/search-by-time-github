@@ -71,18 +71,19 @@ export const validateForm = () => {
   let bool = true;
   fields.forEach((field) => {
     const idFiel = field.getAttribute("id");
+    const spanError = document.getElementById('error_'+idFiel);
 
     const value = field.value.trim();
     if (fielValid[idFiel].required && !value) {
       field.classList.add("error");
-      field.nextElementSibling.classList.add("span_error");
-      field.nextElementSibling.innerHTML =
+      spanError.classList.add("span_error");
+      spanError.innerHTML =
         "Please enter the required field";
       bool = false;
     } else {
       field.classList.remove("error");
-      field.nextElementSibling.classList.remove("span_error");
-      field.nextElementSibling.innerHTML = "";
+      spanError.classList.remove("span_error");
+      spanError.innerHTML = "";
     }
 
   })
