@@ -20,5 +20,5 @@
     position: absolute;
 }
 .error {
-    border: 2px solid var(--danger);
+    border: 1px solid var(--danger);
 }
