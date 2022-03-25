@@ -1,0 +1,30 @@
+{
+	"name": "search-by-time-github",
+	"version": "1.0.0",
+	"description": "<!-- PROJECT SHIELDS -->",
+	"main": "index.js",
+	"directories": {
+		"doc": "docs"
+	},
+	"scripts": {
+		"lint": "eslint --ext .js . && stylelint src/css/*.css",
+		"lint:fix": "eslint . --ext .js --fix",
+		"format": "prettier --write \"**/*.+(js|html|css|md)\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Azordev/search-by-time-github.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Azordev/search-by-time-github/issues"
+	},
+	"homepage": "https://github.com/Azordev/search-by-time-github#readme",
+	"devDependencies": {
+		"eslint": "~8.11.0",
+		"prettier": "~2.5.1",
+		"stylelint": "~14.5.3"
+	}
+}
