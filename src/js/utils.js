@@ -47,15 +47,51 @@ const changeAnchorLink = (anchorElement, { user, repository, typeOfSearch, date 
   }
 }
 
-export const validateForm = (formData, anchorElement) => {
-  const filterData = createSearchFilter(formData);
+export const validateForm = () => {
+  const fielValid = {
+    type_of_search: {
+      required: true,
+    },
+    input_user: {
+      required: true,
+    },
+    input_repository: {
+      required: true,
+    },
+    input_condition: {
+      required: true,
+    },
+    input_date: {
+      required: true,
+    },
+  };
+  const fields = document.querySelectorAll(
+    ".box.d-inline input,.box.d-inline select"
+  );
 
-  const isValid = filterData.user && filterData.repository && filterData.typeOfSearch && filterData.date;
+  let isValid = true;
+  fields.forEach((field) => {
+    const idField = field.getAttribute("id");
+    const spanError = document.getElementById('error_'+idField);
 
-  if (isValid && anchorElement) changeAnchorLink(anchorElement, filterData);
+    const value = field.value.trim();
+    if (fielValid[idField].required && !value) {
+      field.classList.add("error");
+      spanError.classList.add("span_error");
+      spanError.innerHTML =
+        "Please enter the required field";
+      isValid = false;
+    } else {
+      field.classList.remove("error");
+      spanError.classList.remove("span_error");
+      spanError.innerHTML = "";
+    }
+
+  })
   
   return isValid;
-}
+};
+
 
 export const getFormValues = (form) => {
   if (!form) return;
