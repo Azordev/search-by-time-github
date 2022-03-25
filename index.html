@@ -68,10 +68,10 @@
                 <span id="error_input_repository"></span>
               </div>
 
-							<div class="align-r mt-3">
-								<button id="btn_next" class="btn btn-sm">Next</button>
-							</div>
-						</div>
+              <div class="align-r mt-3">
+                <button id="btn_next" class="btn btn-sm">Next</button>
+              </div>
+            </div>
 
             <div id="tab_2" class="box">
               <div>
@@ -93,43 +93,43 @@
                 <span id="error_input_date"></span>
               </div>
 
-							<div class="p-relative">
-								<button id="goback" class="btn--back p-absolute mt-6">
-									<img
-										src="./src/assets/arrow.png"
-										style="margin-top: 3px"
-										width="15px"
-										height="15px"
-										alt=""
-									/>
-								</button>
-							</div>
+              <div class="p-relative">
+                <button id="goback" class="btn--back p-absolute mt-6">
+                  <img
+                    src="./src/assets/arrow.png"
+                    style="margin-top: 3px"
+                    width="15px"
+                    height="15px"
+                    alt=""
+                  />
+                </button>
+              </div>
 
-							<div class="div mt-3">
-								<button id="redirectToSearch" class="btn btn-sm">Ir</button>
-								<button id="copySearch" class="btn btn--secondary btn-sm">
-									Copiar
-								</button>
-							</div>
-						</div>
-						<datalist id="repositories_history">
-							<!-- TODO: ADD repositories history on this datalist -->
-						</datalist>
-						<datalist id="users_history">
-							<!-- TODO: ADD users history on this datalist -->
-						</datalist>
-					</form>
-				</div>
-			</div>
-		</main>
+              <div class="div mt-3">
+                <button id="redirectToSearch" class="btn btn-sm">Ir</button>
+                <button id="copySearch" class="btn btn--secondary btn-sm">
+                  Copiar
+                </button>
+              </div>
+            </div>
+            <datalist id="repositories_history">
+              <!-- TODO: ADD repositories history on this datalist -->
+            </datalist>
+            <datalist id="users_history">
+              <!-- TODO: ADD users history on this datalist -->
+            </datalist>
+          </form>
+        </div>
+      </div>
+    </main>
 
-		<script type="module">
-			import {
-				getFromLSOrDefaultValue,
-				validateForm,
-				createSearchFilter,
-				getFormValues,
-			} from './src/js/utils.js';
+    <script type="module">
+      import {
+        getFromLSOrDefaultValue,
+        validateForm,
+        createSearchFilter,
+        getFormValues,
+      } from "./src/js/utils.js";
 
       /*
        * STEPS FORM
@@ -153,52 +153,52 @@
         }
       });
 
-			goBack.addEventListener('click', switchTab);
+      goBack.addEventListener("click", switchTab);
 
-			const form = document.forms['calendary_filter'];
-			const formData = getFromLSOrDefaultValue('formData', getFormValues(form));
-			const linkRedirect = document.getElementById('redirectToSearch');
-			const buttonCopy = form['copySearch'];
+      const form = document.forms["calendary_filter"];
+      const formData = getFromLSOrDefaultValue("formData", getFormValues(form));
+      const linkRedirect = document.getElementById("redirectToSearch");
+      const buttonCopy = form["copySearch"];
 
-			const fillFormWithFormData = (formData, form) => {
-				if (!form) return;
+      const fillFormWithFormData = (formData, form) => {
+        if (!form) return;
 
-				for (const [key, data] of Object.entries(formData)) {
-					try {
-						form[key].value = data;
-					} catch (error) {
-						debugger;
-						console.error(error);
-					}
-				}
-			};
+        for (const [key, data] of Object.entries(formData)) {
+          try {
+            form[key].value = data;
+          } catch (error) {
+            debugger;
+            console.error(error);
+          }
+        }
+      };
 
-			window.onload = () => {
-				const date = new Date();
-				const fullDate = `${date.getFullYear()}-${date.getMonth()}-${
-					date.getDay() >= 10 ? date.getDate() : '0' + date.getDate()
-				}`;
+      window.onload = () => {
+        const date = new Date();
+        const fullDate = `${date.getFullYear()}-${date.getMonth()}-${
+          date.getDay() >= 10 ? date.getDate() : "0" + date.getDate()
+        }`;
 
-				form.date.value = fullDate;
-				linkRedirect.classList.add('btn--disabled');
+        form.date.value = fullDate;
+        linkRedirect.classList.add("btn--disabled");
 
         fillFormWithFormData(formData, form);
         validateForm();
       };
 
-			form.addEventListener(
-				'change',
-				(evt) => {
-					formData[evt.target.name] = evt.target.value;
-					localStorage.setItem('formData', JSON.stringify(formData));
+      form.addEventListener(
+        "change",
+        (evt) => {
+          formData[evt.target.name] = evt.target.value;
+          localStorage.setItem("formData", JSON.stringify(formData));
 
           validateForm();
         },
         true
       );
 
-			buttonCopy.addEventListener('click', (evt) => {
-				evt.preventDefault();
+      buttonCopy.addEventListener("click", (evt) => {
+        evt.preventDefault();
 
         if (validateForm()) {
           const { typeOfSearch, date } = createSearchFilter(formData);
