@@ -68,7 +68,7 @@ export const validateForm = () => {
     ".box.d-inline input,.box.d-inline select"
   );
 
-  let bool = true;
+  let isValid = true;
   fields.forEach((field) => {
     const idField = field.getAttribute("id");
     const spanError = document.getElementById('error_'+idField);
@@ -79,7 +79,7 @@ export const validateForm = () => {
       spanError.classList.add("span_error");
       spanError.innerHTML =
         "Please enter the required field";
-      bool = false;
+      isValid = false;
     } else {
       field.classList.remove("error");
       spanError.classList.remove("span_error");
@@ -88,7 +88,7 @@ export const validateForm = () => {
 
   })
   
-  return bool;
+  return isValid;
 };
 
 
