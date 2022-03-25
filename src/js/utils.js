@@ -70,11 +70,11 @@ export const validateForm = () => {
 
   let bool = true;
   fields.forEach((field) => {
-    const idFiel = field.getAttribute("id");
-    const spanError = document.getElementById('error_'+idFiel);
+    const idField = field.getAttribute("id");
+    const spanError = document.getElementById('error_'+idField);
 
     const value = field.value.trim();
-    if (fielValid[idFiel].required && !value) {
+    if (fielValid[idField].required && !value) {
       field.classList.add("error");
       spanError.classList.add("span_error");
       spanError.innerHTML =
