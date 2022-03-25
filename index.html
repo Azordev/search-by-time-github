@@ -129,36 +129,36 @@
         validateForm,
         createSearchFilter,
         getFormValues,
-      } from "./src/js/utils.js";
+      } from './src/js/utils.js';
 
       /*
        * STEPS FORM
        */
 
-      const btnNext = document.getElementById("btn_next");
-      const goBack = document.getElementById("goback");
+      const btnNext = document.getElementById('btn_next');
+      const goBack = document.getElementById('goback');
 
       const switchTab = (evt) => {
         evt.preventDefault();
-        const tab1 = document.getElementById("tab_1");
-        const tab2 = document.getElementById("tab_2");
-        tab1.classList.toggle("d-inline");
-        tab2.classList.toggle("d-inline");
+        const tab1 = document.getElementById('tab_1');
+        const tab2 = document.getElementById('tab_2');
+        tab1.classList.toggle('d-inline');
+        tab2.classList.toggle('d-inline');
       };
 
-      btnNext.addEventListener("click", function (evt) {
+      btnNext.addEventListener('click', function (evt) {
         evt.preventDefault();
         if (validateForm()) {
           switchTab(evt);
         }
       });
 
-      goBack.addEventListener("click", switchTab);
+      goBack.addEventListener('click', switchTab);
 
-      const form = document.forms["calendary_filter"];
-      const formData = getFromLSOrDefaultValue("formData", getFormValues(form));
-      const linkRedirect = document.getElementById("redirectToSearch");
-      const buttonCopy = form["copySearch"];
+      const form = document.forms['calendary_filter'];
+      const formData = getFromLSOrDefaultValue('formData', getFormValues(form));
+      const linkRedirect = document.getElementById('redirectToSearch');
+      const buttonCopy = form['copySearch'];
 
       const fillFormWithFormData = (formData, form) => {
         if (!form) return;
@@ -176,28 +176,28 @@
       window.onload = () => {
         const date = new Date();
         const fullDate = `${date.getFullYear()}-${date.getMonth()}-${
-          date.getDay() >= 10 ? date.getDate() : "0" + date.getDate()
+          date.getDay() >= 10 ? date.getDate() : '0' + date.getDate()
         }`;
 
         form.date.value = fullDate;
-        linkRedirect.classList.add("btn--disabled");
+        linkRedirect.classList.add('btn--disabled');
 
         fillFormWithFormData(formData, form);
         validateForm();
       };
 
       form.addEventListener(
-        "change",
+        'change',
         (evt) => {
           formData[evt.target.name] = evt.target.value;
-          localStorage.setItem("formData", JSON.stringify(formData));
+          localStorage.setItem('formData', JSON.stringify(formData));
 
           validateForm();
         },
         true
       );
 
-      buttonCopy.addEventListener("click", (evt) => {
+      buttonCopy.addEventListener('click', (evt) => {
         evt.preventDefault();
 
         if (validateForm()) {
@@ -207,7 +207,7 @@
         }
       });
 
-      linkRedirect.addEventListener("click", (evt) => {
+      linkRedirect.addEventListener('click', (evt) => {
         evt.preventDefault();
 
         if (validateForm()) {
