@@ -1,5 +1,5 @@
 ---
-name: "\U0001F5F9 Project task"
+name: "User History"
 about: It is a necessary task to do in Search by time Github
 ---
 
@@ -7,6 +7,12 @@ about: It is a necessary task to do in Search by time Github
 
 A clear and cIf applicable, add screenshots to help explain.
 oncise explication about the task.
+
+Consider the following
+
+- because it is necessary?
+- You want?
+- For what?
 
 ### Screenshots
 
