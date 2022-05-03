@@ -5,7 +5,7 @@
   display: inline;
 }
 .d-inline {
-    display: inline;
+  display: inline;
 }
 .mt-2 {
   margin-top: 0.75rem;
@@ -23,8 +23,8 @@
   position: absolute;
 }
 .error {
-  border: 1px solid var(--danger);
+  border: 1px solid var(--black);
 }
 .error {
-    border: 1px solid var(--danger);
+  border: 1px solid var(--black);
 }

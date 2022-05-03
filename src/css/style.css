@@ -163,7 +163,7 @@ body {
 }
 .span_error {
   width: 100%;
-  background: rgba(255, 0, 0, 0.16);
+  background: var(--white);
   display: flex;
   border-radius: 5px;
   padding: 2px 15px;
