@@ -61,6 +61,8 @@ body {
   height: 44px;
   left: 1321px;
   top: 68px;
+  text-align: center;
+  font-size: 18px;
   background: #ffffff;
   border: 2px solid #c4c4c4;
   box-sizing: border-box;
@@ -102,7 +104,6 @@ body {
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
-  /* padding: 0.8rem 0.75rem; */
   width: 7.8rem !important;
   height: 3.1rem;
   font-size: 1rem;
