@@ -78,7 +78,7 @@ export const validateForm = () => {
     if (fielValid[idField].required && !value) {
       field.classList.add("error");
       spanError.classList.add("span_error");
-      spanError.innerHTML = "<i class=\"fa fa-exclamation-triangle\">&nbsp&nbsp</i>" +
+      spanError.innerHTML = `<i class="fa fa-exclamation-triangle">&nbsp&nbsp</i>` +
         "Please enter the required field";
       isValid = false;
     } else {
