@@ -38,7 +38,7 @@ export const createSearchFilter = (formData) => {
 }
 
 const changeAnchorLink = (anchorElement, { user, repository, typeOfSearch, date }) => {
-  if (anchorElement) { 
+  if (anchorElement) {
     anchorElement.href = `https://github.com/${user}/${repository}/issues?q=${encodeURI(`${typeOfSearch} ${date}`)}`;
     anchorElement.classList.remove('btn--disabled');
   } else {
@@ -78,7 +78,7 @@ export const validateForm = () => {
     if (fielValid[idField].required && !value) {
       field.classList.add("error");
       spanError.classList.add("span_error");
-      spanError.innerHTML =
+      spanError.innerHTML = `<i class="fa fa-exclamation-triangle">&nbsp&nbsp</i>` +
         "Please enter the required field";
       isValid = false;
     } else {
@@ -88,14 +88,14 @@ export const validateForm = () => {
     }
 
   })
-  
+
   return isValid;
 };
 
 
 export const getFormValues = (form) => {
   if (!form) return;
-  
+
   const values = {}
 
   for (const input of Object.values(form)) {

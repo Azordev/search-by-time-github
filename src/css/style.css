@@ -71,9 +71,10 @@ body {
   width: 100%;
   line-height: 16px;
   margin-top: 0.5em;
-  padding: 0.6em 0.7em;
+  padding: 1.1em 0.9em;
   font-size: 1rem;
   color: var(--black);
+  --radius: 15px;
   border-radius: var(--radius);
   border: 1px solid var(--gray);
   background-color: var(--white);
@@ -154,12 +155,17 @@ body {
   display: none;
 }
 .span_error {
-  width: 100%;
+  width: 95%;
   background: rgba(255, 0, 0, 0.16);
+  color: red;
   display: flex;
   border-radius: 5px;
-  padding: 2px 15px;
-  font-size: 11px;
+  padding: 3px 15px;
+  font-size: 12px;
   font-family: Montserrat, sans-serif;
+  margin: auto;
   margin-top: 5px;
+}
+.fa {
+  margin: 1.15px;
 }
