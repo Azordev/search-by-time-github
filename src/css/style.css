@@ -162,7 +162,7 @@ body {
   display: none;
 }
 .span_error {
-  width: 100%;
+  width: 95%;
   background: var(--white);
   display: flex;
   border-radius: 5px;
