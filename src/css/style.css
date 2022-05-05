@@ -164,6 +164,7 @@ body {
 .span_error {
   width: 95%;
   background: var(--white);
+  color: var(--black);
   display: flex;
   border-radius: 5px;
   padding: 2px 15px;
