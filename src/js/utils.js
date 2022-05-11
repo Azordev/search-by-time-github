@@ -77,13 +77,13 @@ export const validateForm = () => {
     const value = field.value.trim();
     if (fielValid[idField].required && !value) {
       field.classList.add('error');
-      spanError.classList.add('spanError');
+      spanError.classList.add('span_error');
       spanError.innerHTML =
         'Please enter the required field';
       isValid = false;
     } else {
       field.classList.remove('error');
-      spanError.classList.remove('spanError');
+      spanError.classList.remove('span_error');
       spanError.innerHTML = '';
     }
 
