@@ -161,7 +161,7 @@ body {
 .box {
   display: none;
 }
-.span_error {
+.spanError {
   width: 95%;
   background: var(--white);
   color: var(--black);
