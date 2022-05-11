@@ -76,6 +76,7 @@ body {
   padding: 1.1em 0.9em;
   font-size: 1rem;
   color: var(--black);
+  --radius: 15px;
   border-radius: var(--radius);
   border: 1px solid var(--gray);
   background-color: var(--white);
@@ -167,8 +168,12 @@ body {
   color: var(--black);
   display: flex;
   border-radius: 5px;
-  padding: 2px 15px;
-  font-size: 11px;
+  padding: 3px 15px;
+  font-size: 12px;
   font-family: Montserrat, sans-serif;
+  margin: auto;
   margin-top: 5px;
+}
+.fa {
+  margin: 1.15px;
 }
