@@ -2,7 +2,7 @@ export const getFromLSOrDefaultValue = (key, defaultValue) => {
   const item = localStorage.getItem(key);
 
   return item ? JSON.parse(item) : defaultValue;
-}
+};
 
 export const createSearchFilter = (formData) => {
   const {
@@ -17,12 +17,12 @@ export const createSearchFilter = (formData) => {
 
   if (user && repository && typeOfSearch && condition && date) {
     switch (condition) {
-      case 'after':
-        searchCondition = '>=';
-        break;
-      case 'before':
-        searchCondition = '<=';
-        break;
+    case 'after':
+      searchCondition = '>=';
+      break;
+    case 'before':
+      searchCondition = '<=';
+      break;
     }
   }
 
@@ -35,7 +35,7 @@ export const createSearchFilter = (formData) => {
     typeOfSearch: searchTypeOfSearch,
     date: searchDate
   };
-}
+};
 
 const changeAnchorLink = (anchorElement, { user, repository, typeOfSearch, date }) => {
   if (anchorElement) {
@@ -45,7 +45,7 @@ const changeAnchorLink = (anchorElement, { user, repository, typeOfSearch, date 
     anchorElement.href = '#';
     anchorElement.classList.add('btn--disabled');
   }
-}
+};
 
 export const validateForm = () => {
   const fielValid = {
@@ -66,28 +66,28 @@ export const validateForm = () => {
     },
   };
   const fields = document.querySelectorAll(
-    ".box.d-inline input,.box.d-inline select"
+    '.box.d-inline input,.box.d-inline select'
   );
 
   let isValid = true;
   fields.forEach((field) => {
-    const idField = field.getAttribute("id");
+    const idField = field.getAttribute('id');
     const spanError = document.getElementById('error_'+idField);
 
     const value = field.value.trim();
     if (fielValid[idField].required && !value) {
-      field.classList.add("error");
-      spanError.classList.add("span_error");
-      spanError.innerHTML = `<i class="fa fa-exclamation-triangle">&nbsp&nbsp</i>` +
-        "Please enter the required field";
+      field.classList.add('error');
+      spanError.classList.add('span_error');
+      spanError.innerHTML = '<i class="fa fa-exclamation-triangle">&nbsp&nbsp</i>' +
+        'Please enter the required field';
       isValid = false;
     } else {
-      field.classList.remove("error");
-      spanError.classList.remove("span_error");
-      spanError.innerHTML = "";
+      field.classList.remove('error');
+      spanError.classList.remove('span_error');
+      spanError.innerHTML = '';
     }
 
-  })
+  });
 
   return isValid;
 };
@@ -96,7 +96,7 @@ export const validateForm = () => {
 export const getFormValues = (form) => {
   if (!form) return;
 
-  const values = {}
+  const values = {};
 
   for (const input of Object.values(form)) {
     try {
@@ -109,4 +109,4 @@ export const getFormValues = (form) => {
   }
 
   return values;
-}
+};
