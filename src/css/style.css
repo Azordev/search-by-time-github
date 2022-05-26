@@ -40,8 +40,8 @@ body {
   margin-top: 25px;
 }
 .logo img {
-  width: 140px;
-  height: 120px;
+  width: 120px;
+  height: 80px;
 }
 .language {
   display: flex;
@@ -92,8 +92,8 @@ body {
   padding-bottom: 50px;
 }
 .div img {
-  width: 140px;
-  height: 140px;
+  width: 100px;
+  height: 100px;
 }
 .align-r {
   text-align: right;
