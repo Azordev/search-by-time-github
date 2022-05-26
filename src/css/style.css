@@ -67,7 +67,8 @@ body {
   border: 2px solid #c4c4c4;
   box-sizing: border-box;
   border-radius: 10px;
-  padding-right: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 .input,
 .fieldset {
