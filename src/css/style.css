@@ -179,3 +179,11 @@ body {
 .fa {
   margin: 1.15px;
 }
+
+.footer-line {
+  position: fixed;
+  bottom: 0;
+  height: 36px;
+  width: 100%;
+  background-color: #001E66;
+}
