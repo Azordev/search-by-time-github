@@ -71,15 +71,13 @@ body {
   background-color: #ffffff;
   border: 2px solid #c4c4c4;
   border-radius: 10px;
-  background-position-x: calc(100% - 10px);
+  background-position-x: 93%;
 } 
 .input,
 .fieldset {
   width: 100%;
-  line-height: 16px;
   line-height: 65px;
   margin-top: 6px;
-  padding: 1.1em 0.9em;
   padding: 0 0.9em;
   font-size: 1rem;
   color: var(--black);
@@ -87,7 +85,7 @@ body {
   border: 1px solid var(--gray);
   background-color: var(--white);
   font-family: Montserrat, sans-serif;
-  background-position-x: calc(100% - 20px);
+  background-position-x: 93%;
 }
 
 .input:focus {
