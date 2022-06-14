@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="src/css/utils.css" />
   </head>
   <body>
-    <main id="app">
+    <main id="app" class="p-relative">
       <div class="header">
         <div class="logo">
           <img src="./src/assets/logo.png" alt="Azordev logo" />
@@ -33,12 +33,12 @@
           </div>
         </div>
       </div>
-      <div style="display: block">
-        <div class="div">
+      <div class="center-block p-absolute">
+        <div class="logo-github">
           <img src="src/assets/git.png" />
         </div>
         <div>
-          <form id="calendary_filter" class="calendary_filter m-3">
+          <form id="calendary_filter" class="calendary_filter">
             <div id="tab_1" class="box d-inline">
               <div>
                 <select id="type_of_search" name="typeOfSearch" class="input">
@@ -125,6 +125,7 @@
         </div>
       </div>
     </main>
+    <div class="footer-line"></div>
 
     <script type="module">
       import {

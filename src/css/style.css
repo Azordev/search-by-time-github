@@ -28,6 +28,13 @@ body {
 #app {
   height: 95vh;
 }
+.center-block {
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  max-width: 526px;
+  width: calc(100% - 40px - 40px);
+}
 .form {
   display: flex;
   align-items: center;
@@ -88,11 +95,11 @@ body {
   outline-width: 0px;
   border-color: var(--input-border-blue);
 }
-.div {
+.logo-github {
   text-align: center;
-  padding-bottom: 50px;
+  margin-bottom: 50px;
 }
-.div img {
+.logo-github img {
   width: 140px;
   height: 140px;
 }
@@ -145,11 +152,7 @@ body {
   gap: 12px;
   display: grid;
   padding: 30px;
-  max-width: 450px;
   max-height: 388px;
-  min-width: min-content;
-  width: 80%;
-  margin: auto;
   border-radius: 13px;
   box-sizing: border-box;
   grid-template-columns: 1fr;
@@ -178,4 +181,10 @@ body {
 }
 .fa {
   margin: 1.15px;
+}
+
+@media (max-width: 500px) {
+  .logo {
+    display: none;
+  }
 }
