@@ -68,8 +68,8 @@ body {
   width: 203px;
   height: 44px;
   font-size: 18px;
-  background-color: #ffffff;
-  border: 2px solid #c4c4c4;
+  background-color: var(--white);
+  border: 2px solid var(--gray);
   border-radius: 10px;
   background-position-x: 93%;
 } 
