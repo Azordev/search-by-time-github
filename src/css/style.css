@@ -28,6 +28,12 @@ body {
 #app {
   height: 100vh;
 }
+.center-block {
+  max-width: 526px;
+  width: calc(100% - 40px - 40px);
+  margin: 0 auto;
+  bottom: 120px;
+}
 .form {
   display: flex;
   align-items: center;
@@ -91,13 +97,13 @@ body {
   outline-width: 0;
   border-color: var(--input-border-blue);
 }
-.div {
+.logo-github {
   text-align: center;
-  padding-bottom: 3.125rem;
+  padding-bottom: 2rem;
 }
-.div img {
+.logo-github img {
   width: 8.75rem;
-  height: 8.75rem;
+  object-fit: cover;
 }
 .align-r {
   text-align: right;
@@ -147,13 +153,9 @@ body {
 .calendary_filter {
   gap: 0.75rem;
   display: grid;
-  padding: 3.125rem;
-  max-width: 28.125rem;
-  max-height: 24.25rem;
-  min-width: min-content;
-  width: 80%;
+  padding: 2rem 3rem 2.5rem;
   margin: auto;
-  border-radius: 1.56rem;
+  border-radius: 25px;
   box-sizing: border-box;
   grid-template-columns: 1fr;
   border: 4px solid var(--gray);
@@ -181,4 +183,27 @@ body {
 }
 .fa {
   margin: 1.15px;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 0.625rem;
+  }
+  .logo img {
+    width: 7.5rem;
+  }
+  .center-block {
+    bottom: -1rem;
+  }
+  .header {
+    justify-content: end;
+  }
+  .calendary_filter {
+    padding: 1.75rem;
+  }
+  .input, .fieldset {
+    padding: 1.25rem 1rem;
+  }
 }
