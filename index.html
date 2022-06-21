@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendar to search at GitHub</title>
     <!-- Fontawesome CSS -->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat"
       rel="stylesheet"
@@ -25,9 +25,8 @@
             <img src="./src/assets/world.png" alt="world icon" />
           </div>
           <div class="content-select">
-            <select>
-              <option default>Select language</option>
-              <option>English</option>
+            <select class="arrow-bottom">
+              <option selected>English</option>
               <option>Spanish</option>
             </select>
           </div>
@@ -41,7 +40,7 @@
           <form id="calendary_filter" class="calendary_filter">
             <div id="tab_1" class="box d-inline">
               <div>
-                <select id="type_of_search" name="typeOfSearch" class="input">
+                <select id="type_of_search" name="typeOfSearch" class="input arrow-bottom">
                   <option value="issue">Issues</option>
                   <option value="pr">Pull Request</option>
                 </select>
@@ -70,7 +69,7 @@
                 <span id="error_input_repository"></span>
               </div>
 
-              <div class="align-r mt-3">
+              <div class="align-r mt-4">
                 <button id="btn_next" class="btn btn-sm">Next</button>
               </div>
             </div>
